@@ -17,13 +17,12 @@ else()
 find_package(Boost REQUIRED)
 endif()
 
-include("/home/agx004/Documents/opencv-4.6.0/build/OpenCVConfig.cmake")
-# set(_opencv_version 4)
-# find_package(OpenCV 4 QUIET)
-# if(NOT OpenCV_FOUND)
-#   message(STATUS "Did not find OpenCV 4, trying OpenCV 3")
-#   set(_opencv_version 3)
-# endif()
+set(_opencv_version 4)
+find_package(OpenCV 4 QUIET)
+if(NOT OpenCV_FOUND)
+  message(STATUS "Did not find OpenCV 4, trying OpenCV 3")
+  set(_opencv_version 3)
+endif()
 
 find_package(OpenCV ${_opencv_version} REQUIRED
   COMPONENTS
